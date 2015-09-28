@@ -1,0 +1,272 @@
+<!-- 
+~ @Author: Eslam El-Meniawy
+~ @Date: 2015-08-26 12:33:15
+~ @Last Modified by: eslam
+~ @Last Modified time: 2015-09-07 16:38:15
+~
+~ Dear maintainer:
+~ When I wrote this, only God and I understood what I was doing
+~ Now, God only knows
+~ So, good luck maintaining the code :D
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+		<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="msapplication-tap-highlight" content="no">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+		<title>Search</title>
+		<link rel="stylesheet" href="css/material.blue_grey-red.min.css">
+		<link rel="stylesheet" href="css/icon.css">
+		<link rel="stylesheet" href="css/robofont.css" type="text/css">
+		<link rel="stylesheet" href="css/rzslider.min.css">
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+    </head>
+    <body>
+    	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header mdl-layout--fixed-tabs" ng-app="multiSlider">
+    		<header class="mdl-layout__header">
+				<div class="mdl-layout__header-row">
+					<span class="mdl-layout-title center-horizontal">بحث</span>
+				</div>
+				<div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+					<a href="#fixed-tab-1" class="mdl-layout__tab" id="fixed-tab-1-tab">
+						<i class="material-icons color-dark">loop</i>
+						<br>
+						سيارات مستعملة
+					</a>
+					<a href="#fixed-tab-2" class="mdl-layout__tab" id="fixed-tab-2-tab">
+						<img src="img/car.svg">
+						<br>
+						سيارات جديدة
+					</a>
+					<a href="#fixed-tab-3" class="mdl-layout__tab" id="fixed-tab-3-tab">
+						<i class="material-icons color-dark">search</i>
+						<br>
+						بحث عام
+					</a>
+				</div>
+			</header>
+			<div class="mdl-layout__drawer background-main drawer-border-dark">
+				<span class="mdl-layout-title drawer-title">سيارات</span>
+				<nav class="mdl-navigation">
+					<a class="mdl-navigation__link" href="index.html">
+						<div class="drawer-div-center">
+							<i class="material-icons color-dark">home</i>
+							<br>
+							<span class="color-white"><b>الرئيسية</b></span>
+						</div>
+					</a>
+					<hr>
+					<a class="mdl-navigation__link" href="cars.html?stat=new">
+						<div class="drawer-div-center">
+							<img src="img/car.svg">
+							<br>
+							<span class="color-white"><b>سيارات جديدة</b></span>
+						</div>
+					</a>
+					<hr>
+					<a class="mdl-navigation__link" href="cars.html?stat=used">
+						<div class="drawer-div-center">
+							<i class="material-icons color-dark">loop</i>
+							<br>
+							<span class="color-white"><b>سيارات مستعملة</b></span>
+						</div>
+					</a>
+					<hr>
+					<a class="mdl-navigation__link" href="reports.html">
+						<div class="drawer-div-center">
+							<i class="material-icons color-dark">comment</i>
+							<br>
+							<span class="color-white"><b>تقارير</b></span>
+						</div>
+					</a>
+					<hr>
+					<a class="mdl-navigation__link" href="shops.html?stat=sell">
+						<div class="drawer-div-center">
+							<i class="material-icons color-dark">business</i>
+							<br>
+							<span class="color-white"><b>المعارض</b></span>
+						</div>
+					</a>
+					<hr>
+					<a class="mdl-navigation__link" href="shops.html?stat=service">
+						<div class="drawer-div-center">
+							<i class="material-icons color-dark">build</i>
+							<br>
+							<span class="color-white"><b>مراكز الخدمة</b></span>
+						</div>
+					</a>
+					<hr>
+				</nav>
+			</div>
+			<main class="mdl-layout__content position-relative" ng-controller="MainCtrl" id="main">
+				<div class="loading" id="loading">
+					<div class="mdl-spinner mdl-js-spinner is-active"></div>
+				</div>
+				<section class="mdl-layout__tab-panel" id="fixed-tab-1">
+					<div class="page-content">
+						<div class="mdl-grid rtl" id="used-search-div">
+							<form action="#" class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+								<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+									<input class="mdl-textfield__input" type="text" id="used-model" />
+									<label class="mdl-textfield__label" for="used-model">الماركة أو الموديل</label>
+									<span class="mdl-textfield__error" id="used-model-error">برجاء إدخال 3 حروف على الأقل</span>
+									<div class="suggestions hide" id="used-suggestions"></div>
+								</div>
+							</form>
+							<span class="mdl-color-text--grey-500 mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone multiSliderLabelMargin"><b>معدل السعر</b></span>
+							<rzslider
+								class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone multiSliderMargin"
+								rz-slider-floor="priceSlider.floor"
+								rz-slider-ceil="priceSlider.ceil"
+								rz-slider-model="priceSlider.min"
+								rz-slider-high="priceSlider.max"
+								rz-slider-step="100"
+								rz-slider-on-change="onChangePrice()">
+							</rzslider>
+							<span class="mdl-color-text--grey-500 mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone multiSliderLabelMargin"><b>معدل الكيلومترات</b></span>
+							<rzslider
+								class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone multiSliderMargin"
+								rz-slider-floor="distanceSlider.floor"
+								rz-slider-ceil="distanceSlider.ceil"
+								rz-slider-model="distanceSlider.min"
+								rz-slider-high="distanceSlider.max"
+								rz-slider-step="5"
+								rz-slider-on-change="onChangeDistance()">
+							</rzslider>
+							<span class="mdl-color-text--grey-500 mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone multiSliderLabelMargin"><b>السنة</b></span>
+							<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone used-year-margin">
+								<div class="mdl-grid used-year-padding">
+									<div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+										<form action="#">
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+												<input class="mdl-textfield__input" type="text" pattern="^(19|20)\d{2}$" id="used-year-from" />
+												<label class="mdl-textfield__label" for="used-year-from">من</label>
+												<span class="mdl-textfield__error" id="used-year-from-error">برجاء ادخال سنة بين عامين 1900 و 2099</span>
+											</div>
+										</form>
+									</div>
+									<div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+										<form action="#">
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+												<input class="mdl-textfield__input" type="text" pattern="^(19|20)\d{2}$" id="used-year-to" />
+												<label class="mdl-textfield__label" for="used-year-to">إلى</label>
+												<span class="mdl-textfield__error" id="used-year-to-error">برجاء ادخال سنة بين عامين 1900 و 2099</span>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+							<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+								<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent center-horizontal used-search-button" id="used-search">بحث</button>
+							</div>
+						</div>
+						<div class="mdl-grid hide" id="used-search-div-results"></div>
+					</div>
+				</section>
+				<section class="mdl-layout__tab-panel" id="fixed-tab-2">
+					<div class="page-content">
+						<div class="mdl-grid rtl" id="new-search-div">
+							<form action="#" class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+								<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+									<input class="mdl-textfield__input" type="text" id="new-model" />
+									<label class="mdl-textfield__label" for="new-model">الماركة أو الموديل</label>
+									<span class="mdl-textfield__error" id="new-model-error">برجاء إدخال 3 حروف على الأقل</span>
+									<div class="suggestions hide" id="new-suggestions"></div>
+								</div>
+							</form>
+							<span class="mdl-color-text--grey-500 mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone multiSliderLabelMargin"><b>معدل السعر</b></span>
+							<rzslider
+								class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone multiSliderMargin"
+								rz-slider-floor="priceSliderNew.floor"
+								rz-slider-ceil="priceSliderNew.ceil"
+								rz-slider-model="priceSliderNew.min"
+								rz-slider-high="priceSliderNew.max"
+								rz-slider-step="100"
+								rz-slider-on-change="onChangePriceNew()">
+							</rzslider>
+							<span class="mdl-color-text--grey-500 mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone multiSliderLabelMargin"><b>السنة</b></span>
+							<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone used-year-margin">
+								<div class="mdl-grid used-year-padding">
+									<div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+										<form action="#">
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+												<input class="mdl-textfield__input" type="text" pattern="^(19|20)\d{2}$" id="new-year-from" />
+												<label class="mdl-textfield__label" for="new-year-from">من</label>
+												<span class="mdl-textfield__error" id="new-year-from-error">برجاء ادخال سنة بين عامين 1900 و 2099</span>
+											</div>
+										</form>
+									</div>
+									<div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+										<form action="#">
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+												<input class="mdl-textfield__input" type="text" pattern="^(19|20)\d{2}$" id="new-year-to" />
+												<label class="mdl-textfield__label" for="new-year-to">إلى</label>
+												<span class="mdl-textfield__error" id="new-year-to-error">برجاء ادخال سنة بين عامين 1900 و 2099</span>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+							<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+								<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent center-horizontal used-search-button" id="new-search">بحث</button>
+							</div>
+						</div>
+						<div class="mdl-grid hide" id="new-search-div-results"></div>
+					</div>
+				</section>
+				<section class="mdl-layout__tab-panel" id="fixed-tab-3">
+					<div class="page-content">
+						<div class="mdl-grid rtl" id="all-search-div">
+							<form action="#" class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+								<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+									<input class="mdl-textfield__input" type="text" id="all-model" />
+									<label class="mdl-textfield__label" for="all-model">الماركة أو الموديل</label>
+									<span class="mdl-textfield__error" id="all-model-error">برجاء إدخال 3 حروف على الأقل</span>
+									<div class="suggestions hide" id="all-suggestions"></div>
+								</div>
+							</form>
+							<span class="mdl-color-text--grey-500 mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone multiSliderLabelMargin"><b>السنة</b></span>
+							<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone used-year-margin">
+								<div class="mdl-grid used-year-padding">
+									<div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+										<form action="#">
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+												<input class="mdl-textfield__input" type="text" pattern="^(19|20)\d{2}$" id="all-year-from" />
+												<label class="mdl-textfield__label" for="all-year-from">من</label>
+												<span class="mdl-textfield__error" id="all-year-from-error">برجاء ادخال سنة بين عامين 1900 و 2099</span>
+											</div>
+										</form>
+									</div>
+									<div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+										<form action="#">
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+												<input class="mdl-textfield__input" type="text" pattern="^(19|20)\d{2}$" id="all-year-to" />
+												<label class="mdl-textfield__label" for="all-year-to">إلى</label>
+												<span class="mdl-textfield__error" id="all-year-to-error">برجاء ادخال سنة بين عامين 1900 و 2099</span>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+							<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+								<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent center-horizontal used-search-button" id="all-search">بحث</button>
+							</div>
+						</div>
+						<div class="mdl-grid hide" id="all-search-div-results"></div>
+					</div>
+				</section>
+			</main>
+    	</div>
+		<script type="text/javascript" src="cordova.js"></script>
+		<script src="js/material.min.js"></script>
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<script src="js/angular.min.js"></script>
+		<script src="js/rzslider.min.js"></script>
+		<script src="js/snackbar.min.js"></script>
+		<script type="text/javascript" src="js/search.js"></script>
+    </body>
+</html>

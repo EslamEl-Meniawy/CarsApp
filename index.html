@@ -1,0 +1,133 @@
+<!-- 
+~ @Author: Eslam El-Meniawy
+~ @Date: 2015-08-26 09:58:29
+~ @Last Modified by: eslam
+~ @Last Modified time: 2015-09-07 16:36:50
+~
+~ Dear maintainer:
+~ When I wrote this, only God and I understood what I was doing
+~ Now, God only knows
+~ So, good luck maintaining the code :D
+-->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="msapplication-tap-highlight" content="no">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+		<title>Main</title>
+		<link rel="stylesheet" href="css/material.blue_grey-red.min.css">
+		<link rel="stylesheet" href="css/icon.css">
+		<link rel="stylesheet" href="css/robofont.css" type="text/css">
+		<link rel="stylesheet" href="css/swiper.min.css">
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+	</head>
+	<body>
+		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+			<header class="mdl-layout__header">
+				<div class="mdl-layout__header-row">
+					<span class="mdl-layout-title center-horizontal">سيارات</span>
+					<a href="search.html?stat=all" class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp" id="search">
+						<i class="material-icons">search</i>
+					</a>
+					<div class="mdl-tooltip" for="search">بحث</div>
+				</div>
+			</header>
+			<div class="mdl-layout__drawer background-main drawer-border-dark">
+				<span class="mdl-layout-title drawer-title">سيارات</span>
+				<nav class="mdl-navigation">
+					<a class="mdl-navigation__link" href="index.html">
+						<div class="drawer-div-center">
+							<i class="material-icons color-dark">home</i>
+							<br>
+							<span class="color-white"><b>الرئيسية</b></span>
+						</div>
+					</a>
+					<hr>
+					<a class="mdl-navigation__link" href="cars.html?stat=new">
+						<div class="drawer-div-center">
+							<img src="img/car.svg">
+							<br>
+							<span class="color-white"><b>سيارات جديدة</b></span>
+						</div>
+					</a>
+					<hr>
+					<a class="mdl-navigation__link" href="cars.html?stat=used">
+						<div class="drawer-div-center">
+							<i class="material-icons color-dark">loop</i>
+							<br>
+							<span class="color-white"><b>سيارات مستعملة</b></span>
+						</div>
+					</a>
+					<hr>
+					<a class="mdl-navigation__link" href="reports.html">
+						<div class="drawer-div-center">
+							<i class="material-icons color-dark">comment</i>
+							<br>
+							<span class="color-white"><b>تقارير</b></span>
+						</div>
+					</a>
+					<hr>
+					<a class="mdl-navigation__link" href="shops.html?stat=sell">
+						<div class="drawer-div-center">
+							<i class="material-icons color-dark">business</i>
+							<br>
+							<span class="color-white"><b>المعارض</b></span>
+						</div>
+					</a>
+					<hr>
+					<a class="mdl-navigation__link" href="shops.html?stat=service">
+						<div class="drawer-div-center">
+							<i class="material-icons color-dark">build</i>
+							<br>
+							<span class="color-white"><b>مراكز الخدمة</b></span>
+						</div>
+					</a>
+					<hr>
+				</nav>
+			</div>
+			<main class="mdl-layout__content" id="main">
+				<div class="page-content position-relative">
+					<div class="loading" id="loading">
+						<div class="mdl-spinner mdl-js-spinner is-active"></div>
+					</div>
+					<div class="swiper-container swiper-container-main" dir="rtl">
+						<div class="swiper-wrapper" id="slider"></div>
+						<div class="swiper-pagination"></div>
+					</div>
+					<div class="mdl-grid rtl background-main main-block">
+						<div class="main-block-header position-relative">
+							<div class="main-block-header-icon">
+								<img src="img/car.svg">
+							</div>
+							<a class="main-block-header-link" href="cars.html?stat=new"><h6 class="float-right main-block-header-title color-white">سيارات جديدة</h6></a>
+						</div>
+						<div class="swiper-container swiper-container-new" dir="rtl">
+							<div class="swiper-wrapper" id="newCars"></div>
+						</div>
+					</div>
+					<div class="mdl-grid rtl background-grey main-block">
+						<div class="main-block-header position-relative">
+							<div class="main-block-header-icon">
+								<i class="material-icons">loop</i>
+							</div>
+							<a class="main-block-header-link" href="cars.html?stat=used"><h6 class="float-right main-block-header-title color-dark">سيارات مستعملة</h6></a>
+						</div>
+						<div class="swiper-container swiper-container-used" dir="rtl">
+							<div class="swiper-wrapper" id="usedCars"></div>
+						</div>
+					</div>
+				</div>
+			</main>
+		</div>
+		<script type="text/javascript" src="cordova.js"></script>
+		<script src="js/material.min.js"></script>
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<script src="js/swiper.min.js"></script>
+		<script src="js/snackbar.min.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+	</body>
+</html>
