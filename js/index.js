@@ -2,7 +2,7 @@
 * @Author: Eslam El-Meniawy
 * @Date: 2015-08-26 09:59:35
 * @Last Modified by: eslam
-* @Last Modified time: 2015-09-28 11:20:25
+* @Last Modified time: 2015-09-28 11:40:45
 *
 * Dear maintainer:
 * When I wrote this, only God and I understood what I was doing
@@ -20,6 +20,7 @@ var connected;
 var loadedSlider = false, loadedNewCars = false, loadedOldCars = false;
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
+	$('.mdl-layout__drawer-button').html('<img class="material-icons" src="img/menu.png">');
 	document.addEventListener("backbutton", onBackKeyDown, false);
 	checkConnection();
 	if (connected == 1) {

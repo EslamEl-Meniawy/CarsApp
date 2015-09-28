@@ -2,7 +2,7 @@
 * @Author: Eslam El-Meniawy
 * @Date: 2015-08-26 09:59:10
 * @Last Modified by: eslam
-* @Last Modified time: 2015-09-28 11:23:52
+* @Last Modified time: 2015-09-28 11:44:26
 *
 * Dear maintainer:
 * When I wrote this, only God and I understood what I was doing
@@ -269,6 +269,9 @@ hr {
 }
 /* mobile */
 @media screen and (max-width: 599px) {
+	.mdl-layout__drawer-button img {
+		margin-bottom: 8px;
+	}
     .details-img, .swiper-container-main {
         height: 200px;
     }
@@ -284,6 +287,9 @@ hr {
 }
 /* tab */
 @media screen and (min-width: 600px) {
+	.mdl-layout__drawer-button img {
+		margin-bottom: 8px;
+	}
     .details-img, .swiper-container-main {
         height: 300px;
     }
@@ -299,6 +305,9 @@ hr {
 }
 /* desktop */
 @media screen and (min-width: 768px) {
+	.mdl-layout__drawer-button img {
+		margin-bottom: 10px;
+	}
     .details-img, .swiper-container-main {
         height: 400px;
     }

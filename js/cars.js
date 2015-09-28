@@ -2,7 +2,7 @@
 * @Author: Eslam El-Meniawy
 * @Date: 2015-08-26 12:42:46
 * @Last Modified by: eslam
-* @Last Modified time: 2015-09-28 10:36:32
+* @Last Modified time: 2015-09-28 11:40:52
 *
 * Dear maintainer:
 * When I wrote this, only God and I understood what I was doing
@@ -27,6 +27,7 @@ var newTemp = '<a class="no-decoration" href="details.html?stat=new&brand={{bran
 	usedTemp = '<a class="no-decoration" href="details.html?stat=used&id={{id}}"><div class="mdl-grid"><div class="mdl-cell grid-60 rtl position-relative"><h5 class="cars-title">{{cartitle}}</h5><div class="color-main">{{carcc}}</div><div class="cars-car-price color-main">{{carprice}}</div></div><div class="mdl-cell grid-40"><img class="main-img" src="http://192.168.1.2/cars/{{carimage}}"></div></div></a>';
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
+	$('.mdl-layout__drawer-button').html('<img class="material-icons" src="img/menu.png">');
 	document.addEventListener("backbutton", onBackKeyDown, false);
 	checkConnection();
 	if (connected == 1) {

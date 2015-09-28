@@ -2,7 +2,7 @@
 * @Author: Eslam El-Meniawy
 * @Date: 2015-09-06 13:27:24
 * @Last Modified by: eslam
-* @Last Modified time: 2015-09-07 13:30:38
+* @Last Modified time: 2015-09-28 11:42:14
 *
 * Dear maintainer:
 * When I wrote this, only God and I understood what I was doing
@@ -24,6 +24,7 @@ var sellerTemp = '{{swiper}}<div class="mdl-grid rtl color-main"><h5 class="colo
 	sellerBranch = '<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp details-data-block"><tbody><tr><td>اسم الفرع</td><td>{{branchname}}</td></tr><tr><td>عنوان الفرع</td><td>{{branchaddress}}</td></tr><tr><td>التليفون</td><td>{{branchphone}}</td></tr></tbody></table>';
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
+	$('.mdl-layout__drawer-button').html('<img class="material-icons" src="img/menu.png">');
 	document.addEventListener("backbutton", onBackKeyDown, false);
 	checkConnection();
 	if (connected == 1) {

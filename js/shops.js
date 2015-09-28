@@ -2,7 +2,7 @@
 * @Author: Eslam El-Meniawy
 * @Date: 2015-09-06 11:26:03
 * @Last Modified by: eslam
-* @Last Modified time: 2015-09-28 10:43:07
+* @Last Modified time: 2015-09-28 11:40:59
 *
 * Dear maintainer:
 * When I wrote this, only God and I understood what I was doing
@@ -26,6 +26,7 @@ if (stat == 'sell') {
 var temp = '<div class="mdl-cell grid-50"><a class="no-decoration" href="shopsdetails.html?stat={{stat}}&id={{id}}"><img class="main-img" src="http://192.168.1.2/cars/{{image}}"><div class="background-grey"><h6 class="main-block-header-title color-dark">{{name}}</h6></div></a></div>';
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
+	$('.mdl-layout__drawer-button').html('<img class="material-icons" src="img/menu.png">');
 	document.addEventListener("backbutton", onBackKeyDown, false);
 	checkConnection();
 	if (connected == 1) {

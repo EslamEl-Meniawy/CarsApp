@@ -2,7 +2,7 @@
 * @Author: Eslam El-Meniawy
 * @Date: 2015-08-26 15:50:09
 * @Last Modified by: eslam
-* @Last Modified time: 2015-09-03 15:47:14
+* @Last Modified time: 2015-09-28 11:41:07
 *
 * Dear maintainer:
 * When I wrote this, only God and I understood what I was doing
@@ -27,6 +27,7 @@ var newTemp = '<div class="mdl-shadow--2dp details-title-block"><div class="mdl-
 	usedTemp = '<h5 class="color-accent details-title-h5">الوصف</h5><p>{{cardiscription}}</p><br>{{swiper}}<h5 class="color-accent details-title-h5">المواصفات</h5><table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp details-data-block"><tbody><tr><td>النمط</td><td>{{style}}</td></tr><tr><td>سعه المحرك </td><td>{{capacity}} سى سى</td></tr><tr><td>سنه الصنع</td><td>{{year}}</td></tr><tr><td>كيلومترات</td><td>{{km}} كم</td></tr><tr><td>ناقل الحركه</td><td>{{transimition}}</td></tr><tr><td>عدد الابواب</td><td>{{doors}} باب</td></tr><tr><td>تكييف الهواء</td><td>{{aircondition}}</td></tr><tr><td>زجاج كهربائى</td><td>{{glass}}</td></tr><tr><td>سنتر لوك</td><td>{{center}}</td></tr><tr><td>أنذار</td><td>{{alarm}}</td></tr><tr><td>وسائد هوائية</td><td>{{bags}}</td></tr><tr><td>فتحة سقف</td><td>{{seal}}</td></tr><tr><td>مثبت سرعة</td><td>{{speedlimiter}}</td></tr><tr><td>راديو كاست</td><td>{{radio}}</td></tr><tr><td>نظام فرامل ABS</td><td>{{abs}}</td></tr><tr><td>توزيع اليكتروني للفرامل EBD</td><td>{{ebd}}</td></tr></tbody></table><br><div class="mdl-shadow--2dp details-title-block float-right drawer-div-center"><span>السعر: </span><span class="color-accent">{{price}}</span><span> جنيه مصرى</span></div><br><br><h5 class="color-accent details-title-h5">بيانات المالك</h5><table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp details-data-block"><tbody><tr><td>العنوان</td><td>{{region}} - {{governorate}}</td></tr><tr><td>البريد الإلكتروني</td><td>{{mail}}</td></tr><tr><td>رقم الهاتف</td><td>{{phone}}</td></tr></tbody></table>';
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
+	$('.mdl-layout__drawer-button').html('<img class="material-icons" src="img/menu.png">');
 	document.addEventListener("backbutton", onBackKeyDown, false);
 	checkConnection();
 	if (connected == 1) {

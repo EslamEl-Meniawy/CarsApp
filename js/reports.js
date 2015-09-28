@@ -2,7 +2,7 @@
 * @Author: Eslam El-Meniawy
 * @Date: 2015-08-26 14:11:12
 * @Last Modified by: eslam
-* @Last Modified time: 2015-09-03 12:35:01
+* @Last Modified time: 2015-09-28 11:41:16
 *
 * Dear maintainer:
 * When I wrote this, only God and I understood what I was doing
@@ -16,6 +16,7 @@ var connected;
 var temp = '<div class="half position-relative float-right"><a href="details.html?stat=report&id={{id}}"><img class="main-img" src="http://192.168.1.2/cars/images/news/{{image}}"><h5 class="rtl reports-image-title">{{title}}</h5></a></div>';
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
+	$('.mdl-layout__drawer-button').html('<img class="material-icons" src="img/menu.png">');
 	document.addEventListener("backbutton", onBackKeyDown, false);
 	checkConnection();
 	if (connected == 1) {
