@@ -2,7 +2,7 @@
 * @Author: Eslam El-Meniawy
 * @Date: 2015-08-26 09:59:35
 * @Last Modified by: eslam
-* @Last Modified time: 2015-09-03 15:48:29
+* @Last Modified time: 2015-09-28 11:20:25
 *
 * Dear maintainer:
 * When I wrote this, only God and I understood what I was doing
@@ -13,7 +13,7 @@
 var sliderLink = 'http://192.168.1.2/cars/newcars/getslider',
 	newLink = 'http://192.168.1.2/cars/newcars/get_new_recent?page=0',
 	usedLink = 'http://192.168.1.2/cars/used/get_used_recent?page=0';
-var slidTemp = '<div class="swiper-slide"><a href="details.html?stat=main&link={{link}}&type={{type}}"><img class="details-img center-horizontal" src="http://192.168.1.2/cars/{{carimage}}"><h5 class="rtl reports-image-title">{{title}}</h5></a></div>',
+var slidTemp = '<div class="swiper-slide"><a href="details.html?stat=main&link={{link}}&type={{type}}"><img class="details-img center-horizontal" src="http://192.168.1.2/cars/{{carimage}}"><h5 class="rtl reports-image-title mainSlider-title">{{title}}</h5></a></div>',
 	newTemp = '<div class="swiper-slide"><a href="details.html?stat=new&brand={{brand}}&model={{model}}"><img class="main-img" src="http://192.168.1.2/cars/{{carimage}}"><div class="main-title rtl float-right"><h5 class="main-title-h5 float-right color-main main-title-content">{{cartitle}}</h5><span class="main-title-price color-accent main-title-content">{{carprice}}</span></div></a></div>',
 	usedTemp = '<div class="swiper-slide"><a href="details.html?stat=used&id={{id}}"><img class="main-img" src="http://192.168.1.2/cars/{{carimage}}"><div class="main-title rtl float-right"><h5 class="main-title-h5 float-right color-main main-title-content">{{cartitle}}</h5><span class="main-title-price color-accent main-title-content">{{carprice}}</span></div></a></div>';
 var connected;
@@ -124,6 +124,7 @@ function fillSlider(response) {
 		paginationClickable: true,
 		loop: true
 	});
+	//$('.swiper-pagination').css('bottom', $('.mainSlider-title').height() + ($('.swiper-container-main').height() * 0.02));
 	loadedSlider = true;
 	if (loadedSlider && loadedNewCars && loadedOldCars) {
 		$('#loading').hide();

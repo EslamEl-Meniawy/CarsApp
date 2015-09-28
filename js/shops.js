@@ -2,7 +2,7 @@
 * @Author: Eslam El-Meniawy
 * @Date: 2015-09-06 11:26:03
 * @Last Modified by: eslam
-* @Last Modified time: 2015-09-06 12:31:04
+* @Last Modified time: 2015-09-28 10:43:07
 *
 * Dear maintainer:
 * When I wrote this, only God and I understood what I was doing
@@ -23,7 +23,7 @@ if (stat == 'sell') {
 } else {
 	window.location = "index.html";
 }
-var temp = '<div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--2-col-phone"><a class="no-decoration" href="shopsdetails.html?stat={{stat}}&id={{id}}"><img class="main-img" src="http://192.168.1.2/cars/{{image}}"><div class="background-grey"><h6 class="main-block-header-title color-dark">{{name}}</h6></div></a></div>';
+var temp = '<div class="mdl-cell grid-50"><a class="no-decoration" href="shopsdetails.html?stat={{stat}}&id={{id}}"><img class="main-img" src="http://192.168.1.2/cars/{{image}}"><div class="background-grey"><h6 class="main-block-header-title color-dark">{{name}}</h6></div></a></div>';
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
 	document.addEventListener("backbutton", onBackKeyDown, false);
@@ -109,4 +109,7 @@ function fillData(response) {
 			$('#maindata').append(temp.replace(/{{stat}}/g, stat).replace(/{{id}}/g, response[i].id).replace(/{{image}}/g, response[i].logo).replace(/{{name}}/g, response[i].name));
 		}
 	}
+	$('.grid-50').each(function() {
+		$(this).width(((($(window).width() - 16) * 0.5) - 16) + 'px');
+	});
 }

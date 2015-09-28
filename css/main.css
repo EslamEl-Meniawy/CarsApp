@@ -2,7 +2,7 @@
 * @Author: Eslam El-Meniawy
 * @Date: 2015-08-26 09:59:10
 * @Last Modified by: eslam
-* @Last Modified time: 2015-09-07 16:05:42
+* @Last Modified time: 2015-09-28 11:23:52
 *
 * Dear maintainer:
 * When I wrote this, only God and I understood what I was doing
@@ -70,6 +70,9 @@ body {
 hr {
 	border-color: #070a0d;
 }
+.mainSlider-title {
+	height: 30px;
+}
 .reports-image-title {
 	position: absolute;
 	bottom: 0;
@@ -130,7 +133,7 @@ hr {
 	background: #FF5252;
 }
 .swiper-container-horizontal > .swiper-pagination {
-	bottom: 20px;
+	bottom: 30px;
 	background: rgba(0,0,0,0.2);
 }
 .swiper-container-horizontal > .swiper-pagination-shops {

@@ -2,7 +2,7 @@
 * @Author: Eslam El-Meniawy
 * @Date: 2015-08-26 12:42:46
 * @Last Modified by: eslam
-* @Last Modified time: 2015-09-03 12:03:33
+* @Last Modified time: 2015-09-28 10:36:32
 *
 * Dear maintainer:
 * When I wrote this, only God and I understood what I was doing
@@ -23,8 +23,8 @@ if (stat == 'new') {
 } else {
 	window.location = "index.html";
 }
-var newTemp = '<a class="no-decoration" href="details.html?stat=new&brand={{brand}}&model={{model}}"><div class="mdl-grid"><div class="mdl-cell mdl-cell--7-col mdl-cell--5-col-tablet mdl-cell--2-col-phone rtl position-relative"><h5 class="cars-title">{{cartitle}}</h5><div class="color-main">{{carcc}}</div><div class="cars-car-price color-main">{{carprice}}</div></div><div class="mdl-cell mdl-cell--5-col mdl-cell--3-col-tablet mdl-cell--2-col-phone"><img class="main-img" src="http://192.168.1.2/cars/{{carimage}}"></div></div></a>',
-	usedTemp = '<a class="no-decoration" href="details.html?stat=used&id={{id}}"><div class="mdl-grid"><div class="mdl-cell mdl-cell--7-col mdl-cell--5-col-tablet mdl-cell--2-col-phone rtl position-relative"><h5 class="cars-title">{{cartitle}}</h5><div class="color-main">{{carcc}}</div><div class="cars-car-price color-main">{{carprice}}</div></div><div class="mdl-cell mdl-cell--5-col mdl-cell--3-col-tablet mdl-cell--2-col-phone"><img class="main-img" src="http://192.168.1.2/cars/{{carimage}}"></div></div></a>';
+var newTemp = '<a class="no-decoration" href="details.html?stat=new&brand={{brand}}&model={{model}}"><div class="mdl-grid"><div class="mdl-cell grid-60 rtl position-relative"><h5 class="cars-title">{{cartitle}}</h5><div class="color-main">{{carcc}}</div><div class="cars-car-price color-main">{{carprice}}</div></div><div class="mdl-cell grid-40"><img class="main-img" src="http://192.168.1.2/cars/{{carimage}}"></div></div></a>',
+	usedTemp = '<a class="no-decoration" href="details.html?stat=used&id={{id}}"><div class="mdl-grid"><div class="mdl-cell grid-60 rtl position-relative"><h5 class="cars-title">{{cartitle}}</h5><div class="color-main">{{carcc}}</div><div class="cars-car-price color-main">{{carprice}}</div></div><div class="mdl-cell grid-40"><img class="main-img" src="http://192.168.1.2/cars/{{carimage}}"></div></div></a>';
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
 	document.addEventListener("backbutton", onBackKeyDown, false);
@@ -103,4 +103,10 @@ function fillData(response) {
 			$('#maindata').append(usedTemp.replace(/{{id}}/g, response.details[i].id).replace(/{{carimage}}/g, response.details[i].images).replace(/{{cartitle}}/g, response.details[i].model_name).replace(/{{carprice}}/g, response.details[i].price + ' ج').replace(/{{carcc}}/g, response.details[i].engine_capacity + ' سي سي'));
 		}
 	}
+	$('.grid-60').each(function() {
+		$(this).width(((($(window).width() - 16) * 0.6) - 16) + 'px');
+	});
+	$('.grid-40').each(function() {
+		$(this).width(((($(window).width() - 16) * 0.4) - 16) + 'px');
+	});
 }
