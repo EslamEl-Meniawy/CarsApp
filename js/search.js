@@ -2,7 +2,7 @@
 * @Author: Eslam El-Meniawy
 * @Date: 2015-08-30 11:01:00
 * @Last Modified by: eslam
-* @Last Modified time: 2015-09-28 11:41:30
+* @Last Modified time: 2015-09-28 13:22:46
 *
 * Dear maintainer:
 * When I wrote this, only God and I understood what I was doing
@@ -24,8 +24,8 @@ if (stat == 'new') {
 }
 var priceMin = 100, priceMax = 300000, distanceMin = 250, distanceMax = 450, priceMinNew = 100, priceMaxNew = 300000;
 var usedID = -1, newID = -1, allID = -1;
-var newTemp = '<a class="no-decoration" href="details.html?stat=new&brand={{brand}}&model={{model}}"><div class="mdl-grid"><div class="mdl-cell mdl-cell--7-col mdl-cell--5-col-tablet mdl-cell--2-col-phone rtl position-relative"><h5 class="cars-title">{{cartitle}}</h5><div class="color-main">{{carcc}}</div><div class="cars-car-price color-main">{{carprice}}</div></div><div class="mdl-cell mdl-cell--5-col mdl-cell--3-col-tablet mdl-cell--2-col-phone"><img class="main-img" src="http://192.168.1.2/cars/{{carimage}}"></div></div></a>',
-	usedTemp = '<a class="no-decoration" href="details.html?stat=used&id={{id}}"><div class="mdl-grid"><div class="mdl-cell mdl-cell--7-col mdl-cell--5-col-tablet mdl-cell--2-col-phone rtl position-relative"><h5 class="cars-title">{{cartitle}}</h5><div class="color-main">{{carcc}}</div><div class="cars-car-price color-main">{{carprice}}</div></div><div class="mdl-cell mdl-cell--5-col mdl-cell--3-col-tablet mdl-cell--2-col-phone"><img class="main-img" src="http://192.168.1.2/cars/{{carimage}}"></div></div></a>';
+var newTemp = '<a class="no-decoration" href="details.html?stat=new&brand={{brand}}&model={{model}}"><div class="mdl-grid"><div class="mdl-cell grid-60 rtl position-relative"><h5 class="cars-title">{{cartitle}}</h5><div class="color-main">{{carcc}}</div><div class="cars-car-price color-main">{{carprice}}</div></div><div class="mdl-cell grid-40"><img class="main-img" src="http://192.168.1.2/cars/{{carimage}}"></div></div></a>',
+	usedTemp = '<a class="no-decoration" href="details.html?stat=used&id={{id}}"><div class="mdl-grid"><div class="mdl-cell grid-60 rtl position-relative"><h5 class="cars-title">{{cartitle}}</h5><div class="color-main">{{carcc}}</div><div class="cars-car-price color-main">{{carprice}}</div></div><div class="mdl-cell grid-40"><img class="main-img" src="http://192.168.1.2/cars/{{carimage}}"></div></div></a>';
 var app = angular.module('multiSlider', ['rzModule']);
 app.controller('MainCtrl', function($scope) {
 	$scope.priceSlider = {
@@ -93,29 +93,33 @@ function GetDataValue(VarSearch) {
 	}
 }
 function onBackKeyDown() {
-	if ($('#fixed-tab-2').hasClass('is-active')) {
-		if ($("#new-search-div-results .search-results-number").length) {
-			$('#new-search-div').show();
-			$('#new-search-div-results').html('');
-			$('#new-search-div-results').hide();
-		} else {
-			window.history.back();
-		}
-	} else if ($('#fixed-tab-1').hasClass('is-active')) {
-		if ($("#used-search-div-results .search-results-number").length) {
-			$('#used-search-div').show();
-			$('#used-search-div-results').html('');
-			$('#used-search-div-results').hide();
-		} else {
-			window.history.back();
-		}
+	if ($('.mdl-layout__drawer').hasClass('is-visible')) {
+		$('.mdl-layout__drawer').removeClass('is-visible');
 	} else {
-		if ($("#all-search-div-results .search-results-number").length) {
-			$('#all-search-div').show();
-			$('#all-search-div-results').html('');
-			$('#all-search-div-results').hide();
+		if ($('#fixed-tab-2').hasClass('is-active')) {
+			if ($("#new-search-div-results .search-results-number").length) {
+				$('#new-search-div').show();
+				$('#new-search-div-results').html('');
+				$('#new-search-div-results').hide();
+			} else {
+				window.history.back();
+			}
+		} else if ($('#fixed-tab-1').hasClass('is-active')) {
+			if ($("#used-search-div-results .search-results-number").length) {
+				$('#used-search-div').show();
+				$('#used-search-div-results').html('');
+				$('#used-search-div-results').hide();
+			} else {
+				window.history.back();
+			}
 		} else {
-			window.history.back();
+			if ($("#all-search-div-results .search-results-number").length) {
+				$('#all-search-div').show();
+				$('#all-search-div-results').html('');
+				$('#all-search-div-results').hide();
+			} else {
+				window.history.back();
+			}
 		}
 	}
 }
@@ -201,6 +205,12 @@ function completeSearch() {
 			}
 			$('#used-search-div').hide();
 			$('#used-search-div-results').show();
+			$('.grid-60').each(function() {
+				$(this).width(((($(window).width() - 32) * 0.6) - 16) + 'px');
+			});
+			$('.grid-40').each(function() {
+				$(this).width(((($(window).width() - 32) * 0.4) - 16) + 'px');
+			});
 			$('#loading').hide();
 		}).fail(function() {
 			$('#loading').hide();
@@ -266,6 +276,12 @@ function completeSearch() {
 			}
 			$('#new-search-div').hide();
 			$('#new-search-div-results').show();
+			$('.grid-60').each(function() {
+				$(this).width(((($(window).width() - 32) * 0.6) - 16) + 'px');
+			});
+			$('.grid-40').each(function() {
+				$(this).width(((($(window).width() - 32) * 0.4) - 16) + 'px');
+			});
 			$('#loading').hide();
 		}).fail(function() {
 			$('#loading').hide();
@@ -339,6 +355,12 @@ function completeSearch() {
 			}
 			$('#all-search-div').hide();
 			$('#all-search-div-results').show();
+			$('.grid-60').each(function() {
+				$(this).width(((($(window).width() - 32) * 0.6) - 16) + 'px');
+			});
+			$('.grid-40').each(function() {
+				$(this).width(((($(window).width() - 32) * 0.4) - 16) + 'px');
+			});
 			$('#loading').hide();
 		}).fail(function() {
 			$('#loading').hide();

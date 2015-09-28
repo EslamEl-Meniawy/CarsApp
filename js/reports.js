@@ -2,7 +2,7 @@
 * @Author: Eslam El-Meniawy
 * @Date: 2015-08-26 14:11:12
 * @Last Modified by: eslam
-* @Last Modified time: 2015-09-28 11:41:16
+* @Last Modified time: 2015-09-28 13:21:50
 *
 * Dear maintainer:
 * When I wrote this, only God and I understood what I was doing
@@ -37,7 +37,11 @@ function onDeviceReady() {
 	});
 }
 function onBackKeyDown() {
-	window.location = "index.html";
+	if ($('.mdl-layout__drawer').hasClass('is-visible')) {
+		$('.mdl-layout__drawer').removeClass('is-visible');
+	} else {
+		window.location = "index.html";
+	}
 }
 function checkConnection() {
 	var networkState = navigator.connection.type;
