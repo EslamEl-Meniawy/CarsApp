@@ -2,7 +2,7 @@
 * @Author: Eslam El-Meniawy
 * @Date: 2015-08-26 09:59:10
 * @Last Modified by: eslam
-* @Last Modified time: 2015-09-28 11:44:26
+* @Last Modified time: 2015-10-07 11:09:44
 *
 * Dear maintainer:
 * When I wrote this, only God and I understood what I was doing
@@ -115,6 +115,10 @@ hr {
 .details-data-block {
 	margin-top: 16px;
 	width: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 8px;
 }
 .details-title-h5 {
 	margin: 0;
