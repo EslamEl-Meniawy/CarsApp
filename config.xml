@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="elmeniawy.eslam.cars" android-versionCode="1014001" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="elmeniawy.eslam.cars" versionCode="1014001" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Cars</name>
     <description>
         Cars website mobile application.
@@ -8,6 +8,7 @@
         Eslam El-Meniawy
     </author>
     <content src="index.html" />
+    <preference name="phonegap-version" value="3.7.0" />
     <preference name="permissions" value="none" />
     <preference name="android-minSdkVersion" value="10" />
     <gap:plugin name="cordova-plugin-network-information" source="npm" />
