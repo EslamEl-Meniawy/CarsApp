@@ -2,7 +2,7 @@
 * @Author: Eslam El-Meniawy
 * @Date: 2015-08-26 15:50:09
 * @Last Modified by: eslam
-* @Last Modified time: 2015-09-28 13:21:16
+* @Last Modified time: 2015-10-07 12:47:23
 *
 * Dear maintainer:
 * When I wrote this, only God and I understood what I was doing
@@ -23,7 +23,7 @@ if (stat == 'new') {
 } else {
 	window.location = "index.html";
 }
-var newTemp = '<div class="mdl-shadow--2dp details-title-block"><div class="mdl-grid"><span class="color-accent mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">{{modelname}}</span><div class="mdl-cell mdl-cell--5-col mdl-cell--3-col-tablet mdl-cell--2-col-phone"><img class="main-img" src="http://192.168.1.2/cars/{{image}}"></div><div class="mdl-cell mdl-cell--7-col mdl-cell--5-col-tablet mdl-cell--2-col-phone"><h6 class="color-accent details-title-h5">السعر</h6><div><span>5000</span><span class="main-block-header-title">قسط شهرى</span></div><div><span>{{price}}</span><span class="main-block-header-title">كاش</span></div></div><table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp details-data-block"><tbody><tr><td>ناقل الحركه</td><td>{{transmission}}</td></tr><tr><td>النمط </td><td>{{style}}</td></tr><tr><td>السعه</td><td>{{capacity}} سي سي</td></tr><tr><td>وسائد هوائية</td><td>{{bags}}</td></tr><tr><td>نظام فرامل ABS</td><td>{{abs}}</td></tr><tr><td>مقاس الجنط</td><td>{{rim}}</td></tr><tr><td>فوانيس ضباب</td><td>{{fog}}</td></tr></tbody></table></div></div><br>',
+var newTemp = '<div class="mdl-shadow--2dp details-title-block"><div class="mdl-grid"><span class="color-accent model-title">{{modelname}}</span><div class="mdl-cell grid-40"><img class="main-img" src="http://192.168.1.2/cars/{{image}}"></div><div class="mdl-cell grid-60"><h6 class="color-accent details-title-h5">السعر</h6><div><span>5000</span><span class="main-block-header-title">قسط شهرى</span></div><div><span>{{price}}</span><span class="main-block-header-title">كاش</span></div></div><table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp details-data-block"><tbody><tr><td>ناقل الحركه</td><td>{{transmission}}</td></tr><tr><td>النمط </td><td>{{style}}</td></tr><tr><td>السعه</td><td>{{capacity}} سي سي</td></tr><tr><td>وسائد هوائية</td><td>{{bags}}</td></tr><tr><td>نظام فرامل ABS</td><td>{{abs}}</td></tr><tr><td>مقاس الجنط</td><td>{{rim}}</td></tr><tr><td>فوانيس ضباب</td><td>{{fog}}</td></tr></tbody></table></div></div><br>',
 	usedTemp = '<h5 class="color-accent details-title-h5">الوصف</h5><p>{{cardiscription}}</p><br>{{swiper}}<h5 class="color-accent details-title-h5">المواصفات</h5><table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp details-data-block"><tbody><tr><td>النمط</td><td>{{style}}</td></tr><tr><td>سعه المحرك </td><td>{{capacity}} سى سى</td></tr><tr><td>سنه الصنع</td><td>{{year}}</td></tr><tr><td>كيلومترات</td><td>{{km}} كم</td></tr><tr><td>ناقل الحركه</td><td>{{transimition}}</td></tr><tr><td>عدد الابواب</td><td>{{doors}} باب</td></tr><tr><td>تكييف الهواء</td><td>{{aircondition}}</td></tr><tr><td>زجاج كهربائى</td><td>{{glass}}</td></tr><tr><td>سنتر لوك</td><td>{{center}}</td></tr><tr><td>أنذار</td><td>{{alarm}}</td></tr><tr><td>وسائد هوائية</td><td>{{bags}}</td></tr><tr><td>فتحة سقف</td><td>{{seal}}</td></tr><tr><td>مثبت سرعة</td><td>{{speedlimiter}}</td></tr><tr><td>راديو كاست</td><td>{{radio}}</td></tr><tr><td>نظام فرامل ABS</td><td>{{abs}}</td></tr><tr><td>توزيع اليكتروني للفرامل EBD</td><td>{{ebd}}</td></tr></tbody></table><br><div class="mdl-shadow--2dp details-title-block float-right drawer-div-center"><span>السعر: </span><span class="color-accent">{{price}}</span><span> جنيه مصرى</span></div><br><br><h5 class="color-accent details-title-h5">بيانات المالك</h5><table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp details-data-block"><tbody><tr><td>العنوان</td><td>{{region}} - {{governorate}}</td></tr><tr><td>البريد الإلكتروني</td><td>{{mail}}</td></tr><tr><td>رقم الهاتف</td><td>{{phone}}</td></tr></tbody></table>';
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
@@ -166,6 +166,12 @@ function fillNew(response) {
 		});
 	}
 	$('#stat-new').show();
+	$('.grid-60').each(function() {
+		$(this).width(((($(window).width() - 16) * 0.6) - 16) + 'px');
+	});
+	$('.grid-40').each(function() {
+		$(this).width(((($(window).width() - 16) * 0.4) - 16) + 'px');
+	});
 	$('#loading').hide();
 }
 function fillReports(response) {
