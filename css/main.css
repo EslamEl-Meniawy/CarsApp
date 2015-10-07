@@ -2,7 +2,7 @@
 * @Author: Eslam El-Meniawy
 * @Date: 2015-08-26 09:59:10
 * @Last Modified by: eslam
-* @Last Modified time: 2015-10-07 12:07:46
+* @Last Modified time: 2015-10-07 12:18:34
 *
 * Dear maintainer:
 * When I wrote this, only God and I understood what I was doing
@@ -116,6 +116,11 @@ hr {
 	line-height: 56px;
 }
 .header-row span {
+	line-height: 56px;
+}
+.mdl-layout__header span {
+	width: 100%;
+	text-align: center;
 	line-height: 56px;
 }
 .mainSlider-title {
