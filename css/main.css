@@ -2,7 +2,7 @@
 * @Author: Eslam El-Meniawy
 * @Date: 2015-08-26 09:59:10
 * @Last Modified by: eslam
-* @Last Modified time: 2015-10-11 15:20:00
+* @Last Modified time: 2015-10-11 15:57:44
 *
 * Dear maintainer:
 * When I wrote this, only God and I understood what I was doing
@@ -331,6 +331,12 @@ hr {
 .grid-100 {
 	display: block;
 	width: 100%;
+}
+.inner-grid {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	display: block;
 }
 /* mobile */
 @media screen and (max-width: 599px) {
