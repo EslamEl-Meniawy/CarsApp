@@ -2,7 +2,7 @@
 * @Author: Eslam El-Meniawy
 * @Date: 2015-08-26 09:59:10
 * @Last Modified by: eslam
-* @Last Modified time: 2015-10-07 12:45:24
+* @Last Modified time: 2015-10-11 13:42:55
 *
 * Dear maintainer:
 * When I wrote this, only God and I understood what I was doing
@@ -21,7 +21,7 @@ body {
 header, section, footer, aside, nav, main, article, figure {
 	display: block;
 }
-html, body, .mdl-layout__content, .page-content {
+html, body, .mdl-layout__content, .page-content, section {
 	width: 100%;
 }
 .page-content .mdl-grid  {
