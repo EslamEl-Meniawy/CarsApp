@@ -2,7 +2,7 @@
 * @Author: Eslam El-Meniawy
 * @Date: 2015-08-26 09:59:10
 * @Last Modified by: eslam
-* @Last Modified time: 2015-10-11 14:53:56
+* @Last Modified time: 2015-10-11 15:20:00
 *
 * Dear maintainer:
 * When I wrote this, only God and I understood what I was doing
@@ -270,9 +270,6 @@ hr {
 }
 .used-year-padding {
 	padding: 0 8px;
-}
-.used-search-button {
-	margin-top: 8px;
 }
 .paper-snackbar {
 	transition-property: opacity, bottom, left, right, width, margin, border-radius;
