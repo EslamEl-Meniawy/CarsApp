@@ -2,7 +2,7 @@
 ~ @Author: Eslam El-Meniawy
 ~ @Date: 2015-08-26 12:33:15
 ~ @Last Modified by: eslam
-~ @Last Modified time: 2015-10-11 14:30:30
+~ @Last Modified time: 2015-10-11 14:43:50
 ~
 ~ Dear maintainer:
 ~ When I wrote this, only God and I understood what I was doing
@@ -108,7 +108,7 @@
 				</div>
 				<section class="mdl-layout__tab-panel" id="fixed-tab-1">
 					<div class="page-content">
-						<div class="mdl-grid" id="used-search-div">
+						<div class="mdl-grid rtl" id="used-search-div">
 							<form action="#" class="mdl-cell grid-100">
 								<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label grid-100">
 									<input class="mdl-textfield__input" type="text" id="used-model" />
@@ -117,7 +117,7 @@
 									<div class="suggestions hide" id="used-suggestions"></div>
 								</div>
 							</form>
-							<span class="mdl-color-text--grey-500 mdl-cell grid-100 multiSliderLabelMargin rtl"><b>معدل السعر</b></span>
+							<span class="mdl-color-text--grey-500 mdl-cell grid-100 multiSliderLabelMargin"><b>معدل السعر</b></span>
 							<rzslider
 								class="mdl-cell grid-100 multiSliderMargin"
 								rz-slider-floor="priceSlider.floor"
@@ -127,7 +127,7 @@
 								rz-slider-step="100"
 								rz-slider-on-change="onChangePrice()">
 							</rzslider>
-							<span class="mdl-color-text--grey-500 mdl-cell grid-100 multiSliderLabelMargin rtl"><b>معدل الكيلومترات</b></span>
+							<span class="mdl-color-text--grey-500 mdl-cell grid-100 multiSliderLabelMargin"><b>معدل الكيلومترات</b></span>
 							<rzslider
 								class="mdl-cell grid-100 multiSliderMargin"
 								rz-slider-floor="distanceSlider.floor"
@@ -137,21 +137,21 @@
 								rz-slider-step="5"
 								rz-slider-on-change="onChangeDistance()">
 							</rzslider>
-							<span class="mdl-color-text--grey-500 mdl-cell grid-100 multiSliderLabelMargin rtl"><b>السنة</b></span>
+							<span class="mdl-color-text--grey-500 mdl-cell grid-100 multiSliderLabelMargin"><b>السنة</b></span>
 							<div class="mdl-cell grid-100 used-year-margin">
-								<div class="mdl-grid used-year-padding">
-									<div class="mdl-cell grid-50">
-										<form action="#" class="grid-50">
-											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label grid-50">
+								<div class="mdl-grid used-year-padding grid-100">
+									<div class="mdl-cell grid-50 float-right">
+										<form action="#" class="grid-100">
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label grid-100">
 												<input class="mdl-textfield__input" type="text" pattern="^(19|20)\d{2}$" id="used-year-from" />
 												<label class="mdl-textfield__label" for="used-year-from">من</label>
 												<span class="mdl-textfield__error" id="used-year-from-error">برجاء ادخال سنة بين عامين 1900 و 2099</span>
 											</div>
 										</form>
 									</div>
-									<div class="mdl-cell grid-50">
-										<form action="#" class="grid-50">
-											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label grid-50">
+									<div class="mdl-cell grid-50 float-right">
+										<form action="#" class="grid-100">
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label grid-100">
 												<input class="mdl-textfield__input" type="text" pattern="^(19|20)\d{2}$" id="used-year-to" />
 												<label class="mdl-textfield__label" for="used-year-to">إلى</label>
 												<span class="mdl-textfield__error" id="used-year-to-error">برجاء ادخال سنة بين عامين 1900 و 2099</span>
@@ -169,7 +169,7 @@
 				</section>
 				<section class="mdl-layout__tab-panel" id="fixed-tab-2">
 					<div class="page-content">
-						<div class="mdl-grid" id="new-search-div">
+						<div class="mdl-grid rtl" id="new-search-div">
 							<form action="#" class="mdl-cell grid-100">
 								<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label grid-100">
 									<input class="mdl-textfield__input" type="text" id="new-model" />
@@ -178,7 +178,7 @@
 									<div class="suggestions hide" id="new-suggestions"></div>
 								</div>
 							</form>
-							<span class="mdl-color-text--grey-500 mdl-cell grid-100 multiSliderLabelMargin rtl"><b>معدل السعر</b></span>
+							<span class="mdl-color-text--grey-500 mdl-cell grid-100 multiSliderLabelMargin"><b>معدل السعر</b></span>
 							<rzslider
 								class="mdl-cell grid-100 multiSliderMargin"
 								rz-slider-floor="priceSliderNew.floor"
@@ -188,21 +188,21 @@
 								rz-slider-step="100"
 								rz-slider-on-change="onChangePriceNew()">
 							</rzslider>
-							<span class="mdl-color-text--grey-500 mdl-cell grid-100 multiSliderLabelMargin rtl"><b>السنة</b></span>
+							<span class="mdl-color-text--grey-500 mdl-cell grid-100 multiSliderLabelMargin"><b>السنة</b></span>
 							<div class="mdl-cell grid-100 used-year-margin">
-								<div class="mdl-grid used-year-padding">
-									<div class="mdl-cell grid-50">
-										<form action="#" class="grid-50">
-											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label grid-50">
+								<div class="mdl-grid used-year-padding grid-100">
+									<div class="mdl-cell grid-50 float-right">
+										<form action="#" class="grid-100">
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label grid-100">
 												<input class="mdl-textfield__input" type="text" pattern="^(19|20)\d{2}$" id="new-year-from" />
 												<label class="mdl-textfield__label" for="new-year-from">من</label>
 												<span class="mdl-textfield__error" id="new-year-from-error">برجاء ادخال سنة بين عامين 1900 و 2099</span>
 											</div>
 										</form>
 									</div>
-									<div class="mdl-cell grid-50">
-										<form action="#" class="grid-50">
-											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label grid-50">
+									<div class="mdl-cell grid-50 float-right">
+										<form action="#" class="grid-100">
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label grid-100">
 												<input class="mdl-textfield__input" type="text" pattern="^(19|20)\d{2}$" id="new-year-to" />
 												<label class="mdl-textfield__label" for="new-year-to">إلى</label>
 												<span class="mdl-textfield__error" id="new-year-to-error">برجاء ادخال سنة بين عامين 1900 و 2099</span>
@@ -220,7 +220,7 @@
 				</section>
 				<section class="mdl-layout__tab-panel" id="fixed-tab-3">
 					<div class="page-content">
-						<div class="mdl-grid" id="all-search-div">
+						<div class="mdl-grid rtl" id="all-search-div">
 							<form action="#" class="mdl-cell grid-100">
 								<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label grid-100">
 									<input class="mdl-textfield__input" type="text" id="all-model" />
@@ -229,21 +229,21 @@
 									<div class="suggestions hide" id="all-suggestions"></div>
 								</div>
 							</form>
-							<span class="mdl-color-text--grey-500 mdl-cell grid-100 multiSliderLabelMargin rtl"><b>السنة</b></span>
+							<span class="mdl-color-text--grey-500 mdl-cell grid-100 multiSliderLabelMargin"><b>السنة</b></span>
 							<div class="mdl-cell grid-100 used-year-margin">
-								<div class="mdl-grid used-year-padding">
-									<div class="mdl-cell grid-50">
-										<form action="#" class="grid-50">
-											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label grid-50">
+								<div class="mdl-grid used-year-padding grid-100">
+									<div class="mdl-cell grid-50 float-right">
+										<form action="#" class="grid-100">
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label grid-100">
 												<input class="mdl-textfield__input" type="text" pattern="^(19|20)\d{2}$" id="all-year-from" />
 												<label class="mdl-textfield__label" for="all-year-from">من</label>
 												<span class="mdl-textfield__error" id="all-year-from-error">برجاء ادخال سنة بين عامين 1900 و 2099</span>
 											</div>
 										</form>
 									</div>
-									<div class="mdl-cell grid-50">
-										<form action="#" class="grid-50">
-											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label grid-50">
+									<div class="mdl-cell grid-50 float-right">
+										<form action="#" class="grid-100">
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label grid-100">
 												<input class="mdl-textfield__input" type="text" pattern="^(19|20)\d{2}$" id="all-year-to" />
 												<label class="mdl-textfield__label" for="all-year-to">إلى</label>
 												<span class="mdl-textfield__error" id="all-year-to-error">برجاء ادخال سنة بين عامين 1900 و 2099</span>
