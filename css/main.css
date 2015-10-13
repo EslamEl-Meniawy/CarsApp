@@ -2,7 +2,7 @@
 * @Author: Eslam El-Meniawy
 * @Date: 2015-08-26 09:59:10
 * @Last Modified by: eslam
-* @Last Modified time: 2015-10-13 10:37:30
+* @Last Modified time: 2015-10-13 10:52:09
 *
 * Dear maintainer:
 * When I wrote this, only God and I understood what I was doing
@@ -265,7 +265,7 @@ hr {
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
-.grid-100 {
+.width-100 {
 	display: block;
 	width: 100%;
 	-webkit-box-sizing: border-box;
