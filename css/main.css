@@ -2,7 +2,7 @@
 * @Author: Eslam El-Meniawy
 * @Date: 2015-08-26 09:59:10
 * @Last Modified by: eslam
-* @Last Modified time: 2015-10-11 16:07:11
+* @Last Modified time: 2015-10-13 10:25:40
 *
 * Dear maintainer:
 * When I wrote this, only God and I understood what I was doing
@@ -257,6 +257,13 @@ hr {
 }
 .mdl-textfield__label, .mdl-textfield__input {
 	text-align: right;
+}
+.section-div {
+	width: 100%;
+	padding: 8px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 .multiSliderMargin {
 	margin-top: 30px;
