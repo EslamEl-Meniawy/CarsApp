@@ -2,7 +2,7 @@
 * @Author: Eslam El-Meniawy
 * @Date: 2015-08-26 09:59:10
 * @Last Modified by: eslam
-* @Last Modified time: 2015-10-13 10:52:09
+* @Last Modified time: 2015-10-13 11:11:21
 *
 * Dear maintainer:
 * When I wrote this, only God and I understood what I was doing
@@ -344,6 +344,9 @@ hr {
 .search-results-number {
 	padding: 8px;
 	text-align: center;
+}
+#all-search, #new-search, #used-search {
+	width: 70px;
 }
 /* mobile */
 @media screen and (max-width: 599px) {
