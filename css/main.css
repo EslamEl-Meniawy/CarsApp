@@ -2,7 +2,7 @@
 * @Author: Eslam El-Meniawy
 * @Date: 2015-08-26 09:59:10
 * @Last Modified by: eslam
-* @Last Modified time: 2015-10-13 11:33:07
+* @Last Modified time: 2015-10-13 11:35:16
 *
 * Dear maintainer:
 * When I wrote this, only God and I understood what I was doing
@@ -250,11 +250,11 @@ hr {
     white-space: nowrap;
 }
 .main-block-header-icon {
-	position: relative;
+	position: absolute;
 	right: 0;
 }
 .main-block-header-link {
-	position: relative;
+	position: absolute;
 	right: 25px;
 }
 .mdl-layout__tab {
